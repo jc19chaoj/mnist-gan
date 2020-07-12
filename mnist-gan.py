@@ -15,7 +15,7 @@ def download_dataset():
     
     return x_train, x_test
 
-def train_dcgan(gan, dataset, batch_size, num_features, epochs=5):
+def train_dcgan(gan, dataset, batch_size, num_features, seed, epochs=5):
     generator, discriminator = gan.layers
     for epoch in tqdm(range(epochs)):
         print("Epoch {}/{}".format(epoch + 1, epochs))
@@ -107,7 +107,7 @@ def main(argv):
     print("... Complete!")
     
     print("[INFO] Start training, num of epochs={}...".format(epochs))
-    train_dcgan(gan, dataset, batch_size, num_features, epochs=epochs)
+    train_dcgan(gan, dataset, batch_size, num_features, seed, epochs=epochs)
     print("[SUCCESS] Training completed!")
     
     
